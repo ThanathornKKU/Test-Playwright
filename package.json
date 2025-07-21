@@ -1,0 +1,40 @@
+{
+  "name": "test-playwright",
+  "version": "1.0.0",
+  "description": "Create for test writing playwright with GitHub Actions CI/CD.",
+  "main": "index.js",
+  "scripts": {
+    "server": "npx http-server . -p 8080 -c-1",
+    "server:ci": "npx http-server . -p 8080 -c-1 --silent",
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "test:debug": "playwright test --debug",
+    "test:report": "playwright show-report",
+    "test:chrome": "playwright test --project=chromium",
+    "test:firefox": "playwright test --project=firefox",
+    "test:webkit": "playwright test --project=webkit",
+    "test:ci": "npm run server:ci & sleep 10 && npm run test",
+    "install:browsers": "npx playwright install --with-deps",
+    "clean": "rm -rf test-results playwright-report",
+    "audit": "npm audit --audit-level moderate"
+  },
+  "keywords": [
+    "playwright",
+    "testing",
+    "automation",
+    "ci-cd",
+    "github-actions"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.54.1",
+    "@types/node": "^24.0.13",
+    "http-server": "^14.1.1"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  }
+}
